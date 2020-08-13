@@ -25,9 +25,10 @@
    
 덧셈, 뺄셈, 계수 또는 나머지 연산을 포함하는 표준 산술 연산자가 지원되며, 고급 수학 함수와 상수를 다루기 위한 수학(Math) 내장 객체가 있다.  
    
-내장 parseInt() 함수를 사용하여 문자열을 정수로 변환할 수 있다. parseInt() 함수는 0으로 시작되는 문자열을 8진수로, "0x"로 시작하는 문자열은 16진수로 취급하는데 이 때 8진수는 제거되며 16진수 표기법은 그대로 유지된다. 반면에 내장 함수 parseFloat()는 parseInt()와는 달리 항상 10진수를 사용한다.
-단항 연산자 +를 사용하여 값을 숫자로 변환, 문자열이 수가 아닌 경우 NaN(Not a Number)로 불리는 특별한 값을 돌려준다. 다만 어떤 수학 연산의 입력값으로 주어지면 그 결과는 NaN가 된다.   
+내장 parseInt() 함수를 사용하여 문자열을 정수로 변환할 수 있다. parseInt() 함수는 0으로 시작되는 문자열을 8진수로, "0x"로 시작하는 문자열은 16진수로 취급하는데 이 때 8진수는 제거되며 16진수 표기법은 그대로 유지된다. 반면에 내장 함수 parseFloat()는 parseInt()와는 달리 항상 10진수를 사용한다. 단항 연산자 +를 사용하여 값을 숫자로 변환, 문자열이 수가 아닌 경우 NaN(Not a Number)로 불리는 특별한 값을 돌려준다. 다만 어떤 수학 연산의 입력값으로 주어지면 그 결과는 NaN가 된다.   
+
 내장 isNaN() 함수를 사용해 NaN인지 여부를 검사할 수 있고, 내장 함수 isFinite()를 사용하여 Infinity, -Infinity, NaN 값을 테스트할 수 있다. 추가적으로 isNaN() 함수는 같음 연산(==, ===)을 사용해 판별할 수 없다. 즉, NaN == NaN, NaN === NaN 이기 때문에 NaN를 판별하는 함수가 필요하다. NaN 값은 산술 연산이 정의되지 않은 결과 혹은 표현할 수 없는 결과를 도출하면 생성된다. isNaN()의 방법으로는 만일 isNaN(x)가 false을 반환하면 그 식이 NaN을 반환하게 하지 않고 산술식에 x를 쓸 수 있다. true을 반환할 경우, x는 모든 산술식이 NaN을 반환하게 한다. isNaN(x)는 이러한 각각의 조건을 표현하는 가장 짧은 형태이다.   
+
 parseInt()와 parseFloat() 함수는 숫자가 아닌 문자가 나올 때까지 문자열을 파싱하고, 그 지점까지 파싱된 숫자를 반환한다. 하지만 '+' 연산자는 중간에 유효하지 않은 문자가 있으면 그대로 문자열을 NaN로 변환한다.   
 
 5.문자열(Strings)
@@ -40,6 +41,7 @@ parseInt()와 parseFloat() 함수는 숫자가 아닌 문자가 나올 때까지
 --------------------   
 
 의도적으로 값이 없음을 가리키는 객체 타입의 객체인 null와 초기화되지 않은 값(아직 그 어떤 값도 주어지지 않은 변수인 '정의되지 않음' 타입의 객체인  undefined로 구분된다. 자바스크립트에서 변수에 값을 주지 않고 선언하는 것이 가능하다. 이런 경우의 변수 타입은 undefined로 선언한다.   
+
 true와 false 값(키워드로 예약되어있는 값)을 가질 수 있는 부울 타입을 가지고 있으며 아래의 규칙을 따라 임의의 값을 부울값으로 변환할 수 있다.
    
 i) false, 0, 빈 문자열(""), 수가 아님을 뜻하는 NaN, null, undefined는 모두 false가 된다.   
@@ -94,7 +96,7 @@ switch 문은 숫자나 문자열을 기반으로 다중 분기되는 문장을 
    
 자바스크립트의 객체는 간단히 이름-값 묶음의 모임이다. 이 자바스크립트 객체의 모임은 Python의 Dictionaries, Perl와 Ruby의 Hashes, C와 C++의 Hash tables, Java의 HashMaps, PHP의 Associative arrays이며 이러한 데이터 구조가 광범위하게 사용된다. 현재 자바스크립트 내 코어 타입을 제외한 모든 것들은 객체로 취급된다. 값은 객체를 포함하여 아무 자바스크립트 값이 될 수 있는 반면 "이름" 부분은 자바스크립트 문자열로 정의된다. 이 것은 무작위적인 복잡성을 가지는 데이터 구조를 만들 수 있도록 해준다.   
 
-> var obj = new Object();
+> var obj = new Object();   
 > var obj = {};
 
 : 의미적으로 동일하며 var obj = {}; 는 '객체 리터럴 구문'이라고 한다. '객체 리터럴 구문'은 JSON 구문의 핵심이다. 이 객체 리터럴 구문으로 객체의 전체적인 구조를 초기화 시킬 수 있고, 속성에 연속적으로 접근할 수 있다.   
@@ -156,7 +158,7 @@ new 키워드는 this와 깊게 연관되어 있다. 새로운 빈 객체를 만
 
 Person.prototype은 모든 Person 인스턴스들 간에 공유되는 객체이며, lookup(찾아보기) 체인의 한 부분을 이룬다. 이는 Person 객체의 설정되지 않은 속성에 접근을 시도할 때마다 대체용도로 javascript는 Person.prototype에 그 속성이 존재하는지 확인한다. 여기서 Person.prototype에 할당된 모든 것들은 this 객체를 통해 해당 Constructor에 속한 모든 인스턴스 간에 사용가능하도록 한다.   
 
-prototype object의 객체는 언제나 function로 생성되며 함수를 정의하면 함수만 생성되는 것이 아니라 prototype object도 같이 생성된다. 그렇게 생성된 함수는 prototype라는 속성을 통해 prototype object에 접근할 수 있다. 이 prototype object는 일반적인 객체와 같으며 기본적인 속성으로 constructor와 __proto__를 가지고 있다. Constructor는 Prototype object와 같이 생성되었던 함수를 가리키고 있고, __proto__는 Prototype Link이다. Prototype Object는 일반적인 객체이므로 속성을 마음대로 추가 및 삭제를 할 수 있다. __proto__ 속성은 prototype 속성이 함수만 갖고 있던 것과는 달리 모든 객체가 빠짐없이 가지고 있는 속성이고, 객체가 생성될 때 조상이었던 함수의 Prototype Object를 가리킨다. 이런 속성을 통해 상위 프로토타입과 연결되어 있는 형태를 프로토타입 체인(Chain)이라고 한다. 이런 프로토타입 체인 구조 때문에 모든 객체는 object의 자식이라 불리고, object Prototype object에 있는 모든 속성을 사용할 수 있다. 예를 들면 toString 함수가 있다.   
+prototype object의 객체는 언제나 function로 생성되며 함수를 정의하면 함수만 생성되는 것이 아니라 prototype object도 같이 생성된다. 그렇게 생성된 함수는 prototype라는 속성을 통해 prototype object에 접근할 수 있다. 이 prototype object는 일반적인 객체와 같으며 기본적인 속성으로 constructor와 __proto__를 가지고 있다. Constructor는 Prototype object와 같이 생성되었던 함수를 가리키고 있고, __proto__는 Prototype Link이다. Prototype Object는 일반적인 객체이므로 속성을 마음대로 추가 및 삭제를 할 수 있다. __proto__속성은 prototype 속성이 함수만 갖고 있던 것과는 달리 모든 객체가 빠짐없이 가지고 있는 속성이고, 객체가 생성될 때 조상이었던 함수의 Prototype Object를 가리킨다. 이런 속성을 통해 상위 프로토타입과 연결되어 있는 형태를 프로토타입 체인(Chain)이라고 한다. 이런 프로토타입 체인 구조 때문에 모든 객체는 object의 자식이라 불리고, object Prototype object에 있는 모든 속성을 사용할 수 있다. 예를 들면 toString 함수가 있다.   
 자바스크립트에서 임의의 프로토타입을 프로그램 내에서 언제든지 변형할 수 있으며, 이미 존재하는 객체에 메소드를 실시간으로 추가할 수 있다.   
 
 apply() 와 비슷하게 this를 다시 설정할 수 있게 하는 'call'의 자매 함수가 있는데 인자로 단일 배열이 아니라 확정된 인자 목록을 입력받는다.   
