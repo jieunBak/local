@@ -71,8 +71,9 @@ ii) 다른 모든 값은 true가 된다.
    
 이러한 변환은 Boolean() 함수로 명시적으로 작업을 수행할 수 있다.
 
-
-`Boolean('') //false , Boolean(234) //true`   
+```
+Boolean('') //false , Boolean(234) //true   
+```
 
 부울연산자는 &&(~와, 그리고), ||(또는), !(부정)이 지원된다.   
 
